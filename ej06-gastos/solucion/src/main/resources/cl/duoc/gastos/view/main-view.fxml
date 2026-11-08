@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="820.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.gastos.controller.MainController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-weight: bold;" text="Registro de gasto" />
+      <GridPane hgap="10.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Tipo" />
+            <Label text="Descripción" GridPane.rowIndex="1" />
+            <Label text="Monto total ($)" GridPane.rowIndex="2" />
+            <Label text="Participantes" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtMonto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtParticipantes" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox fx:id="boxSalida" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Lugar" />
+            <TextField fx:id="txtLugar" />
+            <CheckBox fx:id="chkPropina" mnemonicParsing="false" text="Con propina" />
+         </children>
+      </HBox>
+      <HBox fx:id="boxServicio" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Proveedor" />
+            <TextField fx:id="txtProveedor" prefWidth="80.0" />
+            <Label text="Días de anticipo" />
+            <TextField fx:id="txtAnticipo" prefWidth="80.0" />
+            <CheckBox fx:id="chkReembolsado" mnemonicParsing="false" text="Reembolsado" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Gastos registrados" />
+      <TableView fx:id="tblGastos" prefHeight="300.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+          <TableColumn fx:id="colDescripcion" prefWidth="75.0" text="Descripción" />
+          <TableColumn fx:id="colMonto" prefWidth="75.0" text="Monto total ($)" />
+          <TableColumn fx:id="colParticipantes" prefWidth="75.0" text="Participantes" />
+          <TableColumn fx:id="colAporte" prefWidth="75.0" text="Aporte por persona" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Mensajes" />
+      <Label fx:id="lblMensaje" wrapText="true" />
+   </children>
+</VBox>

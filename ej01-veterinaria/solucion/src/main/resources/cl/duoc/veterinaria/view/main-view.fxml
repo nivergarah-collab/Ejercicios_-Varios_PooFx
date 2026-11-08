@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="720.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.veterinaria.controller.MainController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-weight: bold;" text="Registro de atención" />
+      <GridPane hgap="10.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Tipo" />
+            <Label text="Paciente" GridPane.rowIndex="1" />
+            <Label text="Peso (kg)" GridPane.rowIndex="2" />
+            <Label text="Sesiones" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPaciente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPeso" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtSesiones" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox fx:id="boxConsulta" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Veterinario" />
+            <TextField fx:id="txtVeterinario" />
+            <CheckBox fx:id="chkUrgente" mnemonicParsing="false" text="Urgente" />
+         </children>
+      </HBox>
+      <HBox fx:id="boxVacunacion" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="N° de dosis" />
+            <TextField fx:id="txtDosis" prefWidth="80.0" />
+            <Label text="Meses desde la última dosis" />
+            <TextField fx:id="txtMeses" prefWidth="80.0" />
+            <CheckBox fx:id="chkRecordatorio" mnemonicParsing="false" text="Recordatorio enviado" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Atenciones registradas" />
+      <TableView fx:id="tblAtenciones" prefHeight="300.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+          <TableColumn fx:id="colPaciente" prefWidth="75.0" text="Paciente" />
+          <TableColumn fx:id="colPeso" prefWidth="75.0" text="Peso (kg)" />
+          <TableColumn fx:id="colSesiones" prefWidth="75.0" text="Sesiones" />
+          <TableColumn fx:id="colCosto" prefWidth="75.0" text="Costo por sesión" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Mensajes" />
+      <Label fx:id="lblMensaje" wrapText="true" />
+   </children>
+</VBox>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="720.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.peliculas.controller.MainController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-weight: bold;" text="Registro de función" />
+      <GridPane hgap="10.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Tipo" />
+            <Label text="Película" GridPane.rowIndex="1" />
+            <Label text="Duración (min)" GridPane.rowIndex="2" />
+            <Label text="Entradas" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPelicula" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDuracion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtEntradas" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox fx:id="boxRegular" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Sala" />
+            <TextField fx:id="txtSala" />
+            <CheckBox fx:id="chk3D" mnemonicParsing="false" text="Función en 3D" />
+         </children>
+      </HBox>
+      <HBox fx:id="boxPopular" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Distribuidora" />
+            <TextField fx:id="txtDistribuidora" prefWidth="140.0" />
+            <Label text="Días en cartelera" />
+            <TextField fx:id="txtDias" prefWidth="80.0" />
+            <CheckBox fx:id="chkReembolsada" mnemonicParsing="false" text="Entradas reembolsadas" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Funciones registradas" />
+      <TableView fx:id="tblFunciones" prefHeight="300.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+          <TableColumn fx:id="colPelicula" prefWidth="75.0" text="Película" />
+          <TableColumn fx:id="colDuracion" prefWidth="75.0" text="Duración (min)" />
+          <TableColumn fx:id="colEntradas" prefWidth="75.0" text="Entradas" />
+          <TableColumn fx:id="colPrecio" prefWidth="75.0" text="Precio entrada" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Mensajes" />
+      <Label fx:id="lblMensaje" wrapText="true" />
+   </children>
+</VBox>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="760.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.turnos.controller.MainController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-weight: bold;" text="Registro de turno" />
+      <GridPane hgap="10.0" vgap="5.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="130.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Tipo" />
+            <Label text="Cliente" GridPane.rowIndex="1" />
+            <Label text="Hora de inicio (h)" GridPane.rowIndex="2" />
+            <Label text="Horas del turno" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCliente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtHoraInicio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtHoras" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox fx:id="boxCancha" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="N° de cancha" />
+            <TextField fx:id="txtNumeroCancha" prefWidth="80.0" />
+            <CheckBox fx:id="chkIluminacion" mnemonicParsing="false" text="Con iluminación" />
+         </children>
+      </HBox>
+      <HBox fx:id="boxSala" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Asistentes" />
+            <TextField fx:id="txtAsistentes" prefWidth="80.0" />
+            <Label text="Días de anticipación" />
+            <TextField fx:id="txtDiasAnticipacion" prefWidth="80.0" />
+            <CheckBox fx:id="chkConfirmado" mnemonicParsing="false" text="Confirmado" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Turnos registrados" />
+      <TableView fx:id="tblTurnos" prefHeight="300.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+          <TableColumn fx:id="colCliente" prefWidth="75.0" text="Cliente" />
+          <TableColumn fx:id="colHoraInicio" prefWidth="75.0" text="Hora de inicio" />
+          <TableColumn fx:id="colHoras" prefWidth="75.0" text="Horas" />
+          <TableColumn fx:id="colTotal" prefWidth="75.0" text="Total a pagar" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Mensajes" />
+      <Label fx:id="lblMensaje" wrapText="true" />
+   </children>
+</VBox>

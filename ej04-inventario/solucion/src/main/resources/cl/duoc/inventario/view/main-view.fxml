@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="700.0" prefWidth="760.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.inventario.controller.MainController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Registro de artículos" />
+      <GridPane hgap="10.0" vgap="6.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="90.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="220.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Tipo" />
+            <Label text="Nombre" GridPane.rowIndex="1" />
+            <Label text="Stock" GridPane.rowIndex="2" />
+            <Label text="Anaquel" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtStock" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtAnaquel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox fx:id="boxPintura" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Litros del envase" />
+            <TextField fx:id="txtLitros" prefWidth="80.0" />
+            <CheckBox fx:id="chkAntioxido" mnemonicParsing="false" text="Anti-óxido" />
+         </children>
+      </HBox>
+      <HBox fx:id="boxHerramienta" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Marca" />
+            <TextField fx:id="txtMarca" prefWidth="140.0" />
+            <Label text="Meses en bodega" />
+            <TextField fx:id="txtMesesBodega" prefWidth="80.0" />
+            <CheckBox fx:id="chkPrestada" mnemonicParsing="false" text="En préstamo" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Artículos en bodega" />
+      <TableView fx:id="tblArticulos" prefHeight="300.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="colStock" prefWidth="75.0" text="Stock" />
+          <TableColumn fx:id="colAnaquel" prefWidth="75.0" text="Anaquel" />
+          <TableColumn fx:id="colPrecio" prefWidth="75.0" text="Precio de venta" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Separator />
+      <Label fx:id="lblMensaje" wrapText="true" />
+   </children>
+</VBox>
